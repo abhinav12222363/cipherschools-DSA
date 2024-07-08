@@ -50,4 +50,28 @@ class LinkedList {
     // Function to print the linked list
     public void printList() {
         Node n = head;
-        whi
+        while (n != null) {
+            System.out.print(n.data + " ");
+            n = n.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+
+        list.append(10);
+        list.append(20);
+        list.append(30);
+        list.append(40);
+        list.append(50);
+
+        // Creating a loop for testing
+        list.head.next.next.next.next.next = list.head.next.next;
+
+        if (list.detectLoop()) {
+            System.out.println("Loop detected");
+        } else {
+            System.out.println("No Loop detected");
+        }
+    }
+}
